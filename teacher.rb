@@ -5,7 +5,8 @@ class Teacher < Person
   attr_accessor :rentals
 
   def initialize(age, name = 'unknown', parent_permission: true, specialization: nil)
-    super(name, age, parent_permission)
+    super(age, name) 
+    @parent_permission = parent_permission
     @specialization = specialization
     @rentals = []
   end
