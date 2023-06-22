@@ -2,20 +2,20 @@ require_relative 'person'
 
 class Student < Person
   attr_reader :classroom, :parent_permission
-  attr_accessor :name, :classroom # rubocop:todo Lint/DuplicateMethods
+  attr_accessor :name
 
-  def initialize(name) # rubocop:todo Lint/MissingSuper
-    @name = name
-    @classroom = nil
+  def initialize(name, age, parent_permission: true, classroom: nil)
+    super(name, age, parent_permission: parent_permission)
+    self.classroom = classroom
   end
 
-  def initialize(age, name = 'unknown', parent_permission: true, classroom: nil) # rubocop:todo Lint/DuplicateMethods
-    super(name, age, parent_permission: parent_permission)
+  def classroom=(classroom)
+    @classroom&.remove_student(self)
     @classroom = classroom
+    classroom&.add_student(self)
   end
 
   def play_hooky
     '¯\(ツ)/¯'
   end
 end
-f
