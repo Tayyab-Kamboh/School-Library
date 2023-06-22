@@ -62,11 +62,20 @@ In order to run this project you need:
 - [ ] Ruby 
 - [ ] Code editor
 
+### Usage
+
+To run the project, execute the following command:
+
+
+  bundle install
+  ruby main.rb
+
+
 ### Setup
 
 Clone this repository to your desired folder:
 
-Clone this [ link to your local mechine](https://github.com/Rana-Mudassir/school-library.git)
+Clone this [ link to your local mechine](https://github.com/Tayyab-Kamboh/School-Library.git)
 
 ### Install
 
@@ -97,7 +106,7 @@ sudo install ruby
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Rana-Mudassir/school-library/issues).
+Feel free to check the [issues page](https://github.com/Tayyab-Kamboh/School-Library/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
