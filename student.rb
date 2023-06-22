@@ -5,8 +5,9 @@ class Student < Person
   attr_accessor :name, :classroom
 
   def initialize(name)
-     @name = name
-     @classroom = nil
+    @name = name
+    @classroom = nil
+  end
 
   def initialize(age, name = 'unknown', parent_permission: true, classroom: nil)
     super(name, age, parent_permission: parent_permission)
@@ -17,3 +18,4 @@ class Student < Person
     '¯\(ツ)/¯'
   end
 end
+f
