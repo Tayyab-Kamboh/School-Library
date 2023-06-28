@@ -1,25 +1,22 @@
 require_relative 'person'
+require_relative 'classroom'
 
 class Student < Person
   attr_reader :classroom, :parent_permission
-  attr_accessor :name, :rentals
 
-  def initialize(name, age, parent_permission: true, classroom: nil)
-    super(name, age, parent_permission:)
+  def initialize(age, name = 'unknown', parent_permission: true, classroom: nil)
+    # rubocop:disable Lint/HashSyntax
+    super(age, name, parent_permission: parent_permission)
+    # rubocop:enable Lint/HashSyntax
     self.classroom = classroom
-    @rentals = []
   end
 
   def classroom=(classroom)
-    return if classroom == @classroom
+    return if @classroom == classroom
 
-    @classroom&.remove_student(self)
-
+    @classroom&.students&.delete(self)
     @classroom = classroom
-
-    return unless @classroom
-
-    @classroom.add_student(self)
+    classroom.students << self
   end
 
   def play_hooky
