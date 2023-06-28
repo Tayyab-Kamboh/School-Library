@@ -11,9 +11,4 @@ class Classroom
     @students << student
     student.classroom = self
   end
-
-  def remove_student(student)
-    @students.delete(student)
-    student.classroom = nil
-  end
 end
