@@ -4,6 +4,7 @@ require_relative 'rental'
 require_relative 'book'
 require_relative 'classroom'
 require_relative 'person'
+require 'json'
 
 class App
   attr_accessor :books, :people, :rentals
@@ -12,6 +13,10 @@ class App
     @books = []
     @people = []
     @rentals = []
+
+    load_data_from_file('books.json', Book)
+    load_data_from_file('people.json', Person)
+    load_data_from_file('rentals.json', Rental)
   end
 
   def list_books
@@ -153,5 +158,32 @@ class App
 
   def generate_person_id
     @people.size + 1
+  end
+
+  def load_data_from_file(file_name, class_type)
+    if File.exist?(file_name)
+      file_data = File.read(file_name)
+      json_data = JSON.parse(file_data, object_class: class_type)
+      instance_variable = instance_variable_for_class(class_type)
+
+      if json_data.is_a?(Array)
+        json_data.each do |data|
+          instance_variable << class_type.new(data['title'], data['author'])
+        end
+      else
+        instance_variable << class_type.new(json_data['title'], json_data['author'])
+      end
+    end
+  end
+
+  def instance_variable_for_class(class_type)
+    case class_type.to_s
+    when 'Book'
+      @books
+    when 'Person'
+      @people
+    when 'Rental'
+      @rentals
+    end
   end
 end
