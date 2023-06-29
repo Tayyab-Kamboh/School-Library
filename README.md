@@ -47,8 +47,6 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [ ] There is no live preview yet 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -63,13 +61,6 @@ In order to run this project you need:
 - [ ] Code editor
 
 ### Usage
-
-To run the project, execute the following command:
-
-
-  bundle install
-  ruby main.rb
-
 
 ### Setup
 
