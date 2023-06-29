@@ -35,4 +35,11 @@ describe Person do
       expect(parsed_json['parent_permission']).to eq(true)
     end
   end
+
+  describe '#can_use_services?' do
+    it 'returns true' do
+      person = Person.new(20, 'John Doe')
+      expect(person.can_use_services?).to eq(true)
+    end
+  end
 end
