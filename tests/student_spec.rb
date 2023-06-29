@@ -1,11 +1,11 @@
 require_relative '../student'
 require_relative '../classroom'
 
-describe Student do
-  describe '#classroom=' do
-    let(:student) { Student.new(16, 'Jane Doe') }
-    let(:classroom) { Classroom.new('Classroom') }
+RSpec.describe Student do
+  let(:student) { Student.new(16, 'Jane Doe') }
+  let(:classroom) { Classroom.new('Classroom') }
 
+  describe '#classroom=' do
     it 'sets the student\'s classroom' do
       student.classroom = classroom
       expect(student.classroom).to eq(classroom)
@@ -27,6 +27,12 @@ describe Student do
     it 'returns the play hooky message' do
       student = Student.new(16, 'Jane Doe')
       expect(student.play_hooky).to eq('¯\(ツ)/¯')
+    end
+  end
+
+  describe 'can_use_services' do
+    it 'returns true' do
+      expect(student.can_use_services?).to eq(true)
     end
   end
 end

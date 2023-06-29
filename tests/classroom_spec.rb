@@ -1,9 +1,9 @@
 require_relative '../classroom'
 require_relative '../student'
 
-describe Classroom do
+RSpec.describe Classroom do
   let(:classroom) { Classroom.new('Classroom') }
-  let(:student) { Student.new(16, 'John Doe') }
+  let(:student) { Student.new(16, 'Jane Doe') }
 
   describe '#add_student' do
     it 'adds a student to the classroom' do

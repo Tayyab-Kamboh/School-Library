@@ -1,7 +1,9 @@
 require_relative '../book'
+require_relative '../person'
 require_relative '../rental'
+require 'date'
 
-describe Book do
+RSpec.describe Book do
   let(:person) { Person.new(20, 'John Doe') }
   let(:date) { Date.today }
   let(:book) { Book.new('Title', 'Author') }
@@ -30,6 +32,12 @@ describe Book do
 
       expect(parsed_json['title']).to eq('Title')
       expect(parsed_json['author']).to eq('Author')
+    end
+  end
+
+  describe 'can_use_services' do
+    it 'returns true' do
+      expect(book.can_use_services?).to eq(true)
     end
   end
 end

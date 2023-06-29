@@ -2,9 +2,9 @@ require_relative '../rental'
 require_relative '../person'
 require_relative '../book'
 
-describe Rental do
-  let(:date) { Date.today }
+RSpec.describe Rental do
   let(:person) { Person.new(20, 'John Doe') }
+  let(:date) { Date.today }
   let(:book) { Book.new('Title', 'Author') }
 
   describe '#initialize' do
@@ -36,6 +36,12 @@ describe Rental do
       expect(parsed_json['date']).to eq(date.to_s)
       expect(parsed_json['person']).to eq(person)
       expect(parsed_json['book']).to eq(book)
+    end
+  end
+
+  describe 'can_use_services' do
+    it 'returns true' do
+      expect(Rental.can_use_services?).to eq(true)
     end
   end
 end
