@@ -10,7 +10,7 @@ describe Rental do
   describe '#initialize' do
     it 'creates a rental with correct attributes' do
       rental = Rental.new(date, person, book)
-      
+
       expect(rental.date).to eq(date)
       expect(rental.person).to eq(person)
       expect(rental.book).to eq(book)

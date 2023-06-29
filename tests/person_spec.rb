@@ -8,9 +8,9 @@ describe Person do
     let(:person) { Person.new(20, 'John Doe') }
 
     it 'adds a new rental to the person' do
-      expect {
+      expect do
         person.add_rental(book, date)
-      }.to change { person.rentals.length }.by(1)
+      end.to change { person.rentals.length }.by(1)
     end
 
     it 'creates a rental with correct attributes' do

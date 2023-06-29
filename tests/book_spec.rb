@@ -8,9 +8,9 @@ describe Book do
 
   describe '#add_rental' do
     it 'adds a new rental to the book' do
-      expect {
+      expect do
         book.add_rental(person, date)
-      }.to change { book.rentals.length }.by(1)
+      end.to change { book.rentals.length }.by(1)
     end
 
     it 'creates a rental with correct attributes' do
