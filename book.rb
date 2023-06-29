@@ -1,4 +1,4 @@
-require_relative './modules/rental'
+require_relative 'modules/rental'
 require 'date'
 
 class Book

@@ -1,8 +1,8 @@
 require_relative 'book'
 require_relative 'modules/student'
-require_relative './modules/teacher'
-require_relative './modules/menu'
-require_relative './modules/data_persistance'
+require_relative 'modules/teacher'
+require_relative 'modules/menu'
+require_relative 'modules/data_persistance'
 require 'pry'
 require 'json'
 
