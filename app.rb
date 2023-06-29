@@ -161,18 +161,18 @@ class App
   end
 
   def load_data_from_file(file_name, class_type)
-    if File.exist?(file_name)
-      file_data = File.read(file_name)
-      json_data = JSON.parse(file_data, object_class: class_type)
-      instance_variable = instance_variable_for_class(class_type)
+    return unless File.exist?(file_name)
 
-      if json_data.is_a?(Array)
-        json_data.each do |data|
-          instance_variable << class_type.new(data['title'], data['author'])
-        end
-      else
-        instance_variable << class_type.new(json_data['title'], json_data['author'])
+    file_data = File.read(file_name)
+    json_data = JSON.parse(file_data, object_class: class_type)
+    instance_variable = instance_variable_for_class(class_type)
+
+    if json_data.is_a?(Array)
+      json_data.each do |data|
+        instance_variable << class_type.new(data['title'], data['author'])
       end
+    else
+      instance_variable << class_type.new(json_data['title'], json_data['author'])
     end
   end
 
